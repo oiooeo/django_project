@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li ><a href="{% url 'polls:detail' question.id %}" style="font-family: 'Bebas Neue', cursive; font-size: 18pt;">
+            {{forloop.counter}}.  {{question.question_text}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<h1 style="font-family: 'Permanent Marker', cursive; font-size: 25pt;">{{question.question_text}}</h1>
+<ul>
+    {% for choice in question.choice_set.all %}
+    <li style="font-family: 'Permanent Marker', cursive; font-size: 15pt;">{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes|pluralize}}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'polls:detail' question.id %}" style="font-family: 'Bebas Neue', cursive; font-size: 15pt;">Vote again?</a><br/>
+<a href="{% url 'polls:index' %}" style="font-family: 'Bebas Neue', cursive; font-size: 15pt;">Go List</a>
+{% endblock %}

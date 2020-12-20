@@ -1,0 +1,13 @@
+body {
+    background: #e0ffaf;
+    background-position: right top;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+h1, li a{
+    color: #a7abff;
+}

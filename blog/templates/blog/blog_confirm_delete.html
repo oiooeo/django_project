@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+{% include 'blog/base.html' %}
+    <form action ="" method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Do you want to delete Blog Post?</div>
+        <a href="{% url 'blog:post_list' %}"><input type="button" value="List" class="btn btn-light"></a>
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+{% endblock %}
